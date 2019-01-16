@@ -15,6 +15,9 @@ public class Main : Node
     private int _score;
     private bool _playing;
     private int _hits;
+	[Export]
+	private AudioStreamPlayer2D audioPlayerImpact;
+    
     
     private List<string> backgrounds = new List<string>
     {
@@ -29,6 +32,8 @@ public class Main : Node
         _random = new Random();
         _screenSize = GetViewport().GetVisibleRect().Size;
 //        GetNode<Player_v2>("Player")._screensize = _screenSize;
+		  audioPlayerImpact = GetNode<AudioStreamPlayer2D>("AudioStreamPlayer2DImpact") as AudioStreamPlayer2D;
+	      GD.Print(audioPlayerImpact);
     }
 
 
@@ -159,6 +164,7 @@ public class Main : Node
             else
             {
                 GetNode<Sprite>($"Player/Damage{_hits}").Show();
+				audioPlayerImpact.Play(0.0f);
             }
         }
     }

@@ -150,7 +150,11 @@ public class Player_v2 : RigidBody2D
 
         if (Input.IsActionPressed("thrust"))
         {
-            _thrust = new Vector2(Engine_Power, 0);
+			
+			
+			
+           
+         _thrust = new Vector2(Engine_Power, 0);
         }
 
         _rotationDir = 0;
